@@ -1,0 +1,77 @@
+@charset "UTF-8";
+/* CSS Document */
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body{
+	text-align: center;
+	background: #2c2a29;
+	color: #dbb471;
+	font-family: 'Montserrat', sans-serif;
+}
+
+header{
+	width:80%;
+	margin: auto;
+	margin-top: 2%;
+}
+
+h1{
+	font-size: 8em;
+	margin-bottom:10px;
+	width:100%;
+}
+
+h2{
+	font-weight: normal;
+	text-transform: uppercase;
+	width:100%;
+}
+
+footer{
+	clear:both;
+	font-size: .75em;
+	color: #cca769;
+}
+
+p{
+	margin:.7em;
+}
+
+a{
+	color: #f2ce91;
+	text-decoration: none;
+	font-style: italic;
+}
+
+a:hover{
+	text-decoration: underline;
+}
+
+@media only screen and (min-width : 600px){
+#fire_img{
+	height:50vh;
+	margin-top: 8vh;
+	margin-bottom: 6vh;
+}
+
+#fire_img img{
+	height: 100%;
+}
+}
+
+@media only screen and (max-width : 599px){
+#fire_img{
+	width:100%;
+	margin-top: 2vh;
+	margin-bottom: 3vh;
+}
+
+#fire_img img{
+	width:100%;
+}
+}

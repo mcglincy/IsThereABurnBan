@@ -1,23 +1,31 @@
-<html>
-	<head>
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" type="text/css" href="/css/style.css">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Is There a Burn Ban in Travis County?</title>
+    <link rel="stylesheet" href="_css/reset.css" type="text/css" /> 
+    <link rel="stylesheet" href="_css/main.css" type="text/css" />
+    <meta name="viewport" content="width=device-width">
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="_js/jquery.fittext.js"></script>
   </head>
-	<body>
-    <div id="yesno">
-      NO
-    </div>
-    <div id="countyinfo">
-      Travis County is NOT under a Burn Ban.
-    </div>
-    <div id="lightemup">
-      Light 'em up.
-    </div>
-    <div id="burnban">
-      <img src="/img/burnban_no.png">
-    </div>
-		<div id="firemarshal">
-			<a href="http://www.co.travis.tx.us/fire_marshal/news/burn_ban.asp">What does the fire marshal say?</a>
-		</div>
-	</body>
+  <body>
+	  <header>
+      <h1 id="fittext">NO</h1>
+		  <h2>There is not a burn ban in effect in Travis County.</h2>
+	  </header>
+	  <div id="fire_img">
+		  <img src="_imgs/no_fire.png"/>
+	  </div>
+	  <footer>
+		  <p><a href="http://www.co.travis.tx.us/fire_marshal/faq.asp#burn-ban">What does the fire ban mean for me?</a></p>
+		  <p>Source: <a href="http://www.co.travis.tx.us/fire_marshal/news/burn_ban.asp">Travis County Fire Marshall</a></p>
+		  <p>Sign up for text alerts from the Fire Marshall <a href="http://www.co.travis.tx.us/fire_marshal/news/burn_ban_alerts.asp">here</a>.</p>
+		  <p>Created by <a href="http://thirteen23.com">thirteen23</a>.</p>
+	  </footer>
+    <script>
+      jQuery("#fittext").fitText(1.1, {minFontSize: '48px'});
+    </script>
+  </body>
 </html>
