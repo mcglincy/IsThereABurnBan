@@ -7,9 +7,11 @@
   box-sizing: border-box;
 }
 
+html { -webkit-font-smoothing: antialiased; }
+
 body{
 	text-align: center;
-	background: #2c2a29;
+	background: url(../_imgs/background.png) #2c2a29;
 	color: #dbb471;
 	font-family: 'Montserrat', sans-serif;
 }
@@ -50,6 +52,10 @@ a{
 
 a:hover{
 	text-decoration: underline;
+}
+
+#small{
+	font-size: .8em;
 }
 
 @media only screen and (min-width : 600px){
