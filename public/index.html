@@ -1,42 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8" />
-<title>Is There a Burn Ban in Travis County?</title>
+  <head>
+    <meta charset="utf-8" />
+    <title>Is There a Burn Ban in Travis County?</title>
 
-<link rel="stylesheet" href="_css/reset.css" type="text/css" /> 
-<link rel="stylesheet" href="_css/main.css" type="text/css" />
+    <link rel="stylesheet" href="_css/reset.css" type="text/css" /> 
+    <link rel="stylesheet" href="_css/main.css" type="text/css" />
 
-<link rel="shortcut icon" href="favicon.ico">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
+    <meta name="viewport" content="width=device-width">
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
-<meta name="viewport" content="width=device-width">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="_js/jquery.fittext.js"></script>
+    <script src="_js/jquery-dateFormat.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1 id="bigyesno"></h1>
+      <h2 id="status_message"></h2>
+    </header>
+    <div id="fire_img">
+      <img/>
+    </div>
+    <footer>
+      <p><a href="http://www.co.travis.tx.us/fire_marshal/faq.asp#burn-ban">Read the Travis County Fire Marshal's Burn Ban FAQ</a>.</p>
+      <p class="small">Burn ban status last updated <span id="last_updated"></span></p>
+      <p>Created by <a href="http://www.thirteen23.com/">thirteen23</a>.</p>
+  </footer>  
+    <script>
+     function updatePage() {
+      $.getJSON( "status.json", function(data) {
+        var yesNoText;
+        var imgURL;
+        var statusText;
+        if (data["is_there_a_burn_ban"]) {
+          yesNoText = "YES";
+          imgURL = "_imgs/yes-ban.png";
+          statusText = "There is a burn ban in effect in Travis County.";
+        } else {
+          yesNoText = "NO";          
+          imgURL = "_imgs/no-ban.png";
+          statusText = "There is not a burn ban in effect in Travis County.";
+        }
+        var lastUpdatedDate = new Date(data["data_timestamp"] * 1000);
 
-<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+        $("#bigyesno").html(yesNoText);
+        $("#status_message").html(statusText);
+        $("#fire_img > img").attr("src", imgURL);
+        $("#last_updated").html($.format.date(lastUpdatedDate, 'MM/dd/yyyy HH:mm'));
+       });
+     }
 
-
-</head>
-<body>
-	<header>
-		<h1 id="fittext">NO</h1>
-		<h2>There is not a burn ban in effect in Travis County.</h2>
-	</header>
-	<div id="fire_img">
-		<img src="_imgs/no-ban.png"/>
-	</div>
-	<footer>
-		<p><a href="http://www.co.travis.tx.us/fire_marshal/faq.asp#burn-ban">Travis County Fire Marshal's Burn Ban FAQ</a>.</p>
-		<p>Created by <a href="http://www.thirteen23.com/">thirteen23</a>.</p>
-		<p id="small">Page Last Updated 04/28/2014 15:34</p>
-		<p id="small">Burn Ban Status Last Changed 04/28/2014 15:34</p>
-	</footer>
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script src="_js/jquery.fittext.js"></script>
-<script>
-  jQuery("#fittext").fitText(1.1, {minFontSize: '48px'});
-</script>
-
-</body>
+     $(document).ready(function() {
+        updatePage();
+     });
+    </script>
+  </body>  
 </html>
